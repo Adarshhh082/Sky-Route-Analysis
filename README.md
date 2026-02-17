@@ -1,128 +1,71 @@
-# SkyRoutes Airline Performance Analysis
+# Airline Route Profitability Dashboard
 
-## Project Overview
-
-This project analyzes airline route performance using **SQL and Power BI**.
-The objective is to identify profitable routes, analyze seat occupancy, track monthly trends, and provide business insights to improve operational efficiency.
-
----
-
-## Tools & Technologies
-
-* MySQL (Data Analysis)
-* Power BI (Dashboard & Visualization)
-* Excel/CSV (Data Source)
+## 📌 Project Overview
+This project focuses on analyzing airline route performance using Power BI.  
+The objective is to identify profitable and loss-making routes by comparing revenue, cost, and profit metrics, and to derive actionable business insights through interactive visualizations.
 
 ---
 
-## Dataset Information
+## 📂 Dataset Description
+The dataset contains airline route–level information with the following key attributes:
+- RouteCode
+- AircraftType
+- Airline
+- Alliance
+- Departure & Arrival Airports, Cities, and Countries
+- BaseFareUSD
+- DistanceKM
+- FlightDurationMin
+- Stops
+- WeeklyFrequency
 
-The dataset contains flight-level operational data with the following key fields:
-
-* FlightID
-* RouteCode
-* Origin
-* Destination
-* FlightDate
-* FlightDurationMins
-* AircraftType
-* SeatsAvailable
-* SeatsSold
-* Revenue
-* OperationalCost
-
----
-
-## SQL Analysis Performed
-
-1. Top 10 Most Frequent Routes
-2. Average Revenue, Cost, and Profit per Route
-3. Loss-Making (Underperforming) Routes
-4. Seat Occupancy Percentage
-5. Monthly Profit Trend
-6. Domestic vs International Profit
-7. Revenue per Minute (Operational Efficiency)
-8. Top 10 Most Profitable Routes
-
-SQL file:
-`SkyRoutesAnalysis.sql`
+Since direct cost, revenue, and occupancy values were not available, these metrics were derived using industry-based assumptions.
 
 ---
 
-## Power BI Dashboard
+## 🧮 Key Calculations
+- **Revenue**: Estimated using base fare and weekly frequency  
+- **Cost**: Derived from distance and flight duration  
+- **Profit**: Revenue minus cost  
+- **Average Occupancy**: Estimated using number of stops as a proxy
 
-### Calculated Columns
-
-* **Profit** = Revenue - OperationalCost
-* **Occupancy %** = SeatsSold / SeatsAvailable * 100
-* **Month** = Format(FlightDate, "YYYY-MM")
-
-### Visualizations
-
-* Top 10 Profitable Routes (Bar Chart)
-* Monthly Profit Trend (Line Chart)
-* Average Seat Occupancy % (Gauge)
-* Revenue vs Cost Comparison (Stacked Column)
-* Filters: RouteCode, AircraftType, Month
-
-Dashboard file:
-`RouteProfitDashboard.pbix`
+These calculated measures enable meaningful profitability analysis.
 
 ---
 
-## Key Business Insights
-
-* A small number of routes contribute to the majority of total profit.
-* Some routes show high occupancy but low profitability due to high operational costs.
-* Average seat occupancy ranges between 70–85%, indicating optimization opportunities.
-* Profit trends vary across months, showing seasonal demand patterns.
-* Long-duration routes generate higher revenue per flight.
-* Certain aircraft types are associated with lower operational efficiency.
-
----
-
-## Project Structure
-
-```
-SkyRoutes-Analysis/
-│
-├── AirlineRoutes.csv
-├── SkyRoutesAnalysis.sql
-├── RouteProfitDashboard.pbix
-└── README.md
-```
+## 📊 Dashboard Components
+The Power BI dashboard includes:
+- KPI Cards for Total Revenue, Total Cost, and Total Profit
+- Bar Chart showing Top 10 Most Profitable Routes
+- Origin–Destination Route Map
+- Stacked Column Chart comparing Cost vs Revenue per Route
+- Line Chart showing Profit Trend by Weekly Frequency
+- Donut Chart displaying Average Occupancy by Aircraft Type
+- Interactive slicers for Aircraft Type, Airline, and Route Code
 
 ---
 
-## How to Use
-
-### SQL
-
-1. Import `AirlineRoutes.csv` into MySQL
-2. Run queries from `SkyRoutesAnalysis.sql`
-
-### Power BI
-
-1. Open `RouteProfitDashboard.pbix`
-2. Refresh data if needed
+## 💡 Key Insights
+- Some routes generate high revenue but have low profit due to high operational costs.
+- Long-haul routes earn more revenue but are not always more profitable than short-haul routes.
+- Profitability peaks at moderate flight frequencies, indicating optimal demand levels.
+- Certain aircraft types perform better on specific routes, highlighting the need for optimized aircraft allocation.
 
 ---
 
-## Author
-
-**Adarsh Mishra**
-Aspiring Data Analyst
-
-LinkedIn: https://linkedin.com/in/adarsh-mishra82
-GitHub: https://github.com/Adarshmishra8299
+## 🛠 Tools Used
+- Power BI Desktop
+- DAX for calculated columns and measures
 
 ---
 
-## Project Goal
+## 📁 Files Included
+- `RouteProfitDashboard.pbix` – Power BI dashboard file  
+- `SkyRoutesAnalysis.sql` – SQL queries (Part 1)  
+- `RouteInsights.txt` – Summary of analytical insights  
+- `README.md` – Project documentation  
 
-This project demonstrates skills in:
+---
 
-* SQL Data Analysis
-* Business Insight Generation
-* Data Visualization
-* Dashboard Design
+## ✅ Conclusion
+This dashboard provides a comprehensive view of airline route profitability and supports data-driven decision-making for route planning, cost optimization, and aircraft deployment.
